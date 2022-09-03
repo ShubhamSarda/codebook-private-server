@@ -1,6 +1,6 @@
-const express = require('express');
-const jsonServer = require('json-server')
-const auth = require('json-server-auth')
+import express from "express";
+import jsonServer from "json-server";
+import auth from "json-server-auth";
 
 const server = express();
 server.use((req, res, next) => {
@@ -10,7 +10,7 @@ server.use((req, res, next) => {
 })
 
 const router = jsonServer.router('./data/db.json');
-server.use('/', router);
+server.use('/api', router);
 server.db = router.db
 
 const middlewares = jsonServer.defaults()
